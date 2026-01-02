@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <h2>Admin</h2>
+        <button onclick="showTransactions()">Transaksi</button>
+        <button onclick="showDashboard()">Dashboard</button>
+        <button onclick="logout()">Logout</button>
+    </aside>
+
+    <main class="main">
+        <h1>Dashboard Admin</h1>
+
+        <section id="dashboard">
+            <div class="cards">
+                <div class="card income">Pemasukan<br><span id="income">0</span></div>
+                <div class="card expense">Pengeluaran<br><span id="expense">0</span></div>
+                <div class="card balance">Saldo<br><span id="balance">0</span></div>
+            </div>
+        </section>
+
+        <section id="transactions" style="display:none;">
+            <form id="transaction-form">
+                <input type="date" id="date" required>
+                <input type="text" id="description" placeholder="Keterangan" required>
+                <input type="text" id="amount" placeholder="Jumlah" required>
+                <select id="type">
+                    <option value="income">Pemasukan</option>
+                    <option value="expense">Pengeluaran</option>
+                </select>
+                <button type="submit">Simpan</button>
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Keterangan</th>
+                        <th>Jumlah</th>
+                        <th>Jenis</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-table"></tbody>
+            </table>
+        </section>
+    </main>
+
+</div>
+
+<!-- FIREBASE CDN (WAJIB) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script src="js/firebase.js"></script>
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+
+
+
+</body>
+</html>
